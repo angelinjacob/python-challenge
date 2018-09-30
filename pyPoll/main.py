@@ -3,21 +3,13 @@
 #A complete list of candidates who received votes -> list of names unique and the total number of records for that candidate
 # The percentage of votes each candidate won -> number of records the candidate has / total number of records in the file
 # winner -> greatest total number of records for that candidate
-#name = input("name : ")
-#age = input("age : ")
-#person = {name : age}
-#print(f'{person[name]}')
-
 import os
 import csv
 
 with open("election_data.csv", newline='') as csvfile:
-     # CSV reader specifies delimiter and variable that holds contents
     csvreader = csv.reader(csvfile, delimiter=',')
-    #print(csvreader)
      # Read the header row first (skip this step if there is no header)
     csv_header = next(csvreader)
-    #print(f"CSV Header: {csv_header}")
      # Read first row of data after the header
     csv_header = next(csvreader)
     cname = csv_header[2]
@@ -28,7 +20,7 @@ with open("election_data.csv", newline='') as csvfile:
             candidates[row[2]] += 1
         else:
             candidates[row[2]] = 1
-#file read complete
+#csv file read complete
     total_votes = 0        
     total_candidates = len(candidates)
     for x in candidates.values():
@@ -58,9 +50,6 @@ with open("election_data.csv", newline='') as csvfile:
     file1.write("Winner : " + winner + "\n")
     file1.write("-------------------------")
     file1.close()
-    #print(candidates.items())
-        
-
 """
 class candidates:
     cname = ""
